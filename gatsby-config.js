@@ -3,6 +3,9 @@ module.exports = {
     title: `Gatsby Blog`,
     description: `Blog built with GatsbyJS`,
     author: `Enoch Lin`,
+    social: {
+      linkedin: `wei-enoch-lin-b72021178`,
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,8 +16,22 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blogs`,
+        name: `blogs`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -27,15 +44,13 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    "gatsby-transformer-remark",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        path: `${__dirname}/content/blogs`,
-        name: `blogs`,
+        pathToConfigModule: `src/utils/typography`,
       },
     },
-    "gatsby-transformer-remark",
-
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

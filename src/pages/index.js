@@ -3,12 +3,15 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Bio from "../components/bio"
+import { rhythm } from "../utils/typography"
 
 const IndexPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
       <SEO title="Home" />
+      <Bio />
       <h1>All Posts</h1>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title
@@ -18,7 +21,7 @@ const IndexPage = ({ data }) => {
             <header>
               <h3
                 style={{
-                  marginBottom: 0,
+                  marginBottom: rhythm(1 / 4),
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={path}>
