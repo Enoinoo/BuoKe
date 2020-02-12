@@ -139,7 +139,7 @@ export const pageQuery = graphql`
 `
 ```
 
-At last, I changed my `src/pages/index.js` so that my post titles are shown on the home page, with links to them.
+In the next step, I changed my `src/pages/index.js` so that my post titles are shown on the home page, with links to them.
 
 ```
 const IndexPage = ({ data }) => {
@@ -189,5 +189,10 @@ export const pageQuery = graphql`
     }
   }
 `
+```
 
+At last, because I already have zeit now installed, I published the website with
+
+```
+now
 ```
